@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK6Y0YJJN1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PK6Y0YJJN1');
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>LottoEase - 프리미엄 로또 번호 추첨 및 분석</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#bdc2ff",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#ffb4ac",
+                        "outline": "#767683",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "primary-container": "#1a237e",
+                        "surface-container": "#eceef0",
+                        "inverse-on-surface": "#eff1f3",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-fixed": "#000767",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-tint": "#4c56af",
+                        "secondary": "#1b6d24",
+                        "surface": "#f8f9fb",
+                        "on-secondary-fixed-variant": "#005312",
+                        "on-tertiary-fixed-variant": "#93000e",
+                        "on-tertiary-fixed": "#410003",
+                        "secondary-fixed": "#a3f69c",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#ff635a",
+                        "secondary-container": "#a0f399",
+                        "primary": "#000666",
+                        "secondary-fixed-dim": "#88d982",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-container": "#217128",
+                        "inverse-primary": "#bdc2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#8690ee",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed-variant": "#343d96",
+                        "on-surface-variant": "#454652",
+                        "tertiary-fixed": "#ffdad6",
+                        "tertiary-container": "#670007",
+                        "background": "#f8f9fb",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#400003",
+                        "outline-variant": "#c6c5d4",
+                        "surface-bright": "#f8f9fb",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed": "#002204",
+                        "primary-fixed": "#e0e0ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "40px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* 3D 입체감 로또 구슬 스타일 */
+        .lotto-ball {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 50%;
+            font-weight: 700;
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: inset -4px -4px 8px rgba(0,0,0,0.25), 2px 4px 6px rgba(0,0,0,0.15);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+            font-size: 1.125rem;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        /* 로또 색상 범주 */
+        .ball-yellow { background: radial-gradient(circle at 30% 30%, #ffe082 0%, #fbc02d 55%, #f57f17 100%); }
+        .ball-blue { background: radial-gradient(circle at 30% 30%, #90caf9 0%, #1e88e5 55%, #0d47a1 100%); }
+        .ball-red { background: radial-gradient(circle at 30% 30%, #ef9a9a 0%, #e53935 55%, #b71c1c 100%); }
+        .ball-grey { background: radial-gradient(circle at 30% 30%, #cfd8dc 0%, #78909c 55%, #37474f 100%); }
+        .ball-green { background: radial-gradient(circle at 30% 30%, #a5d6a7 0%, #43a047 55%, #1b5e20 100%); }
+        .ball-empty { background: radial-gradient(circle at 30% 30%, #ffffff 0%, #e0e0e0 55%, #9e9e9e 100%); color: #757575; text-shadow: none; box-shadow: inset -2px -2px 5px rgba(0,0,0,0.1), 1px 2px 4px rgba(0,0,0,0.05); }
+
+        /* 애니메이션 효과 */
+        @keyframes bounce-ball {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+        .animate-bounce-ball {
+            animation: bounce-ball 0.5s ease-out;
+        }
+
+        @keyframes roll-num {
+            0% { transform: rotate(0deg) scale(0.5); opacity: 0; }
+            100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+        .animate-roll {
+            animation: roll-num 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+    <div class="flex justify-between items-center px-lg py-md w-full max-w-container-max mx-auto">
+        <div class="flex items-center gap-md">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden border border-outline-variant shadow-sm">
+                <span class="material-symbols-outlined text-white text-2xl font-bold">casino</span>
+            </div>
+            <h1 class="font-headline-md text-headline-md font-bold text-primary">LottoEase</h1>
+        </div>
+        <div class="flex items-center gap-sm">
+            <div class="hidden sm:flex items-center gap-xs px-sm py-xs bg-surface-container rounded-full text-primary font-mono-data text-xs">
+                <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                <span>실시간 당첨 분석 활성화</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="flex max-w-container-max mx-auto">
+    <!-- Desktop Navigation (Left Sidebar) -->
+    <aside class="hidden md:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-20 flex-col items-center py-lg bg-surface border-r border-outline-variant z-40">
+        <button id="nav-home-btn" class="nav-btn mb-xl p-sm rounded-xl bg-secondary-container/20 text-secondary" title="로또 추첨기">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">casino</span>
+        </button>
+        <button id="nav-stats-btn" class="nav-btn mb-xl p-sm rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" title="분석 통계">
+            <span class="material-symbols-outlined">analytics</span>
+        </button>
+        <button id="nav-saved-btn" class="nav-btn mb-xl p-sm rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" title="보관함">
+            <span class="material-symbols-outlined">folder_special</span>
+        </button>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="w-full md:pl-24 px-lg py-lg pb-xl max-w-container-max">
+        
+        <!-- SECTION 1: HOME (Lotto Generator) -->
+        <section id="section-home" class="space-y-lg">
+            
+            <!-- Summary Info Card (Recent Winner) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+                <!-- Lotto KOSPI-Style Card 1 (최근 당첨 번호) -->
+                <div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+                    <div class="flex justify-between items-start mb-md">
+                        <div>
+                            <span class="px-sm py-xs bg-primary/10 text-primary font-label-md text-[10px] rounded-full uppercase tracking-wider">LATEST DRAW</span>
+                            <h2 class="font-headline-md text-headline-md text-on-surface mt-xs font-bold">제 1126회 당첨 번호</h2>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-on-surface-variant font-label-md text-xs">추첨일: 2026-06-27</p>
+                            <span class="text-secondary font-mono-data text-xs flex items-center gap-xs justify-end mt-xs">
+                                <span class="material-symbols-outlined text-sm">trending_up</span>
+                                직전대비 총합 상승(+12)
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap items-center gap-sm my-md py-xs">
+                        <span class="lotto-ball ball-yellow animate-roll">4</span>
+                        <span class="lotto-ball ball-yellow animate-roll">5</span>
+                        <span class="lotto-ball ball-yellow animate-roll">9</span>
+                        <span class="lotto-ball ball-blue animate-roll">11</span>
+                        <span class="lotto-ball ball-grey animate-roll">37</span>
+                        <span class="lotto-ball ball-grey animate-roll">40</span>
+                        <span class="text-outline mx-xs text-xl font-bold">+</span>
+                        <span class="lotto-ball ball-yellow animate-roll" title="보너스 번호">7</span>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-sm pt-sm border-t border-outline-variant/60 text-xs font-mono-data text-on-surface-variant">
+                        <div>
+                            <p class="text-[10px] text-outline uppercase font-semibold">총합</p>
+                            <p class="text-on-surface font-semibold">106 (낮음)</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-outline uppercase font-semibold">홀짝 비율</p>
+                            <p class="text-on-surface font-semibold">홀 3 : 짝 3</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-outline uppercase font-semibold">고저 비율</p>
+                            <p class="text-on-surface font-semibold">저 4 : 고 2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lotto Card 2 (누적 1등 당첨 정보) -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+                    <div>
+                        <p class="font-label-md text-label-md text-outline uppercase tracking-wider">ESTIMATED PRIZE</p>
+                        <h2 class="font-headline-md text-headline-md text-on-surface mt-xs font-bold">1등 예상 당첨금</h2>
+                        <p class="text-primary font-display-lg text-3xl font-extrabold mt-sm tracking-tight">약 245억 원</p>
+                    </div>
+                    <div class="mt-md pt-sm border-t border-outline-variant/60">
+                        <div class="flex justify-between text-xs text-on-surface-variant">
+                            <span>누적 판매금액</span>
+                            <span class="font-mono-data font-semibold text-on-surface">1,024억 원</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lotto Generator Panel -->
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+                <div class="flex justify-between items-center mb-lg">
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-on-surface font-bold">로또 번호 추첨</h3>
+                        <p class="text-on-surface-variant text-xs mt-xs">고급 필터 옵션을 활용해 나만의 번호 조합을 만들어보세요.</p>
+                    </div>
+                    <div class="flex gap-xs bg-surface-container p-[2px] rounded-lg border border-outline-variant/50">
+                        <button id="btn-count-1" class="px-md py-xs text-xs font-semibold rounded-md bg-white text-primary shadow-sm transition-all duration-150">1게임</button>
+                        <button id="btn-count-5" class="px-md py-xs text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all duration-150">5게임</button>
+                    </div>
+                </div>
+
+                <!-- Generator Setup Details (Accordion style filters) -->
+                <div class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-md mb-lg">
+                    <div class="flex justify-between items-center cursor-pointer select-none" id="filter-toggle">
+                        <div class="flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-primary text-xl">tune</span>
+                            <span class="text-sm font-semibold text-on-surface">고급 필터 조건 설정 (선택)</span>
+                        </div>
+                        <span class="material-symbols-outlined text-outline transition-transform duration-300" id="filter-arrow">keyboard_arrow_down</span>
+                    </div>
+
+                    <!-- Filter Area (Collapsible) -->
+                    <div id="filter-content" class="hidden grid grid-cols-1 md:grid-cols-3 gap-md mt-md pt-md border-t border-outline-variant/40 text-xs">
+                        <!-- Odd/Even Ratio Selection -->
+                        <div class="space-y-xs">
+                            <label class="font-semibold text-on-surface-variant">홀짝 비율 선호도</label>
+                            <select id="filter-odd-even" class="w-full rounded-lg border-outline-variant text-xs py-base focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest">
+                                <option value="all">무작위 (기본)</option>
+                                <option value="3:3">균형 비율 (3:3)</option>
+                                <option value="odd">홀수 우세 (4:2 / 5:1)</option>
+                                <option value="even">짝수 우세 (2:4 / 1:5)</option>
+                            </select>
+                        </div>
+                        <!-- Numbers to Include -->
+                        <div class="space-y-xs">
+                            <label class="font-semibold text-on-surface-variant">고정수 포함 (최대 3개)</label>
+                            <input id="filter-include" type="text" placeholder="예: 7, 24, 38" class="w-full rounded-lg border-outline-variant text-xs py-base focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest">
+                        </div>
+                        <!-- Numbers to Exclude -->
+                        <div class="space-y-xs">
+                            <label class="font-semibold text-on-surface-variant">제외수 설정 (최대 5개)</label>
+                            <input id="filter-exclude" type="text" placeholder="예: 4, 18, 45" class="w-full rounded-lg border-outline-variant text-xs py-base focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Draw Output Panel -->
+                <div class="flex flex-col items-center justify-center py-lg bg-surface border border-outline-variant/60 rounded-xl mb-lg min-h-[220px]" id="draw-output-container">
+                    <div class="text-center text-on-surface-variant" id="draw-placeholder">
+                        <span class="material-symbols-outlined text-5xl text-outline-variant mb-sm animate-pulse">casino</span>
+                        <p class="text-sm font-semibold">추첨하기 버튼을 누르시면 로또 구슬이 생성됩니다.</p>
+                        <p class="text-xs text-outline mt-xs">고급 필터 조건에 부합하는 정밀 필터링 난수가 적용됩니다.</p>
+                    </div>
+
+                    <!-- Dynamic Lotto Lines Container (Hidden initially) -->
+                    <div id="draw-results" class="w-full px-md space-y-md hidden">
+                        <!-- Lotto Line Template (Generated by JS) -->
+                    </div>
+                </div>
+
+                <!-- Call to Action Button -->
+                <div class="flex gap-md">
+                    <button id="btn-draw" class="flex-1 py-md bg-primary hover:bg-primary/95 text-white font-title-lg text-lg rounded-xl shadow-md active:scale-[0.99] transition-all flex items-center justify-center gap-sm">
+                        <span class="material-symbols-outlined">casino</span>
+                        <span>번호 추첨하기</span>
+                    </button>
+                    <button id="btn-save-all" class="px-lg py-md bg-secondary hover:bg-secondary/95 text-white font-title-lg text-md rounded-xl shadow-md transition-colors hidden items-center gap-xs">
+                        <span class="material-symbols-outlined">save</span>
+                        <span>전체 저장</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Banner Course Card (Lotto probability guide) -->
+            <div class="relative w-full rounded-xl overflow-hidden group cursor-pointer aspect-[21/9] bg-primary">
+                <img class="absolute inset-0 w-full h-full object-cover opacity-40 transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=1200" alt="Lotto concept background"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent"></div>
+                <div class="absolute inset-0 flex flex-col justify-end p-lg md:p-xl">
+                    <span class="inline-block px-sm py-xs bg-secondary-container text-on-secondary-container rounded-full font-label-md text-[10px] mb-sm w-fit font-bold">
+                        LOTTERY SCIENCE
+                    </span>
+                    <h2 class="font-headline-lg text-headline-lg text-white max-w-2xl mb-sm font-bold">로또의 수학적 진실: 당첨 확률의 비밀</h2>
+                    <p class="text-primary-fixed-dim font-body-lg text-sm max-w-xl mb-md hidden md:block">
+                        합계 100~170 구간이 당첨될 확률은 무려 70%가 넘습니다. 스마트한 번호 조합을 통해 확률의 이점을 챙기는 분석 가이드를 확인해보세요.
+                    </p>
+                    <button class="px-md py-sm bg-white text-primary rounded-lg font-title-lg text-xs w-fit hover:bg-surface-container-low transition-colors font-bold">
+                        가이드 읽기
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION 2: STATS (Live Analysis) -->
+        <section id="section-stats" class="space-y-lg hidden">
+            <h2 class="font-headline-md text-headline-md text-on-surface font-bold">생성 조합 실시간 통계 분석</h2>
+            <p class="text-on-surface-variant text-sm -mt-md">마지막으로 추첨한 조합들의 수학적 가치를 판별합니다.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+                <!-- Odd/Even Chart Card -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+                    <h3 class="font-title-lg text-sm font-bold text-on-surface mb-md">홀짝(Odd/Even) 비율</h3>
+                    <div class="flex flex-col items-center py-md">
+                        <!-- Simple SVG Circle Chart -->
+                        <div class="relative w-32 h-32">
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                <path class="text-outline-variant" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path id="svg-odd-path" class="text-primary" stroke-dasharray="50, 100" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <span id="stat-odd-pct" class="text-lg font-bold font-mono-data text-primary">50%</span>
+                                <span class="text-[10px] text-outline">홀수 비율</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between w-full mt-md text-xs">
+                            <span class="flex items-center gap-xs"><span class="w-2.5 h-2.5 rounded-sm bg-primary"></span> 홀수 (<span id="stat-odd-cnt">3</span>)</span>
+                            <span class="flex items-center gap-xs"><span class="w-2.5 h-2.5 rounded-sm bg-outline-variant"></span> 짝수 (<span id="stat-even-cnt">3</span>)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Sum Card -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-title-lg text-sm font-bold text-on-surface mb-md">평균 총합 범위</h3>
+                        <div class="text-center py-sm">
+                            <span id="stat-sum-avg" class="text-4xl font-extrabold font-mono-data text-primary">138</span>
+                            <p class="text-xs text-outline mt-sm">골든 존(100~170) 내 안정적 분포</p>
+                        </div>
+                    </div>
+                    <!-- Custom Sparkline style sum bar -->
+                    <div class="w-full bg-surface-container h-3 rounded-full overflow-hidden relative">
+                        <div id="stat-sum-indicator" class="bg-secondary h-full transition-all duration-500" style="width: 70%;"></div>
+                        <div class="absolute inset-0 flex justify-between px-xs text-[8px] text-white pointer-events-none items-center font-mono-data">
+                            <span>21</span>
+                            <span>279</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- High/Low Card -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+                    <h3 class="font-title-lg text-sm font-bold text-on-surface mb-md">고저(High/Low) 분포</h3>
+                    <div class="space-y-md py-sm">
+                        <div>
+                            <div class="flex justify-between text-xs text-on-surface-variant mb-xs">
+                                <span>저번호대 (1 ~ 22)</span>
+                                <span id="stat-low-pct" class="font-semibold font-mono-data">50%</span>
+                            </div>
+                            <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                                <div id="stat-low-bar" class="bg-primary h-full transition-all duration-500" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs text-on-surface-variant mb-xs">
+                                <span>고번호대 (23 ~ 45)</span>
+                                <span id="stat-high-pct" class="font-semibold font-mono-data">50%</span>
+                            </div>
+                            <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                                <div id="stat-high-bar" class="bg-primary h-full transition-all duration-500" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Number Distribution Grid Bar Chart -->
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+                <h3 class="font-title-lg text-sm font-bold text-on-surface mb-lg">번대별 분포 분석</h3>
+                <div class="grid grid-cols-5 gap-md text-center">
+                    <div class="bg-surface p-sm border border-outline-variant/60 rounded-xl">
+                        <p class="text-[10px] text-outline font-semibold mb-xs">1번대 (1~10)</p>
+                        <div class="h-16 w-full flex items-end justify-center mb-xs">
+                            <div id="dist-1-10" class="w-6 bg-amber-400 rounded-t-md transition-all duration-500" style="height: 20%;"></div>
+                        </div>
+                        <span id="dist-1-10-txt" class="font-mono-data text-xs font-bold text-on-surface-variant">0개</span>
+                    </div>
+                    <div class="bg-surface p-sm border border-outline-variant/60 rounded-xl">
+                        <p class="text-[10px] text-outline font-semibold mb-xs">10번대 (11~20)</p>
+                        <div class="h-16 w-full flex items-end justify-center mb-xs">
+                            <div id="dist-11-20" class="w-6 bg-blue-500 rounded-t-md transition-all duration-500" style="height: 20%;"></div>
+                        </div>
+                        <span id="dist-11-20-txt" class="font-mono-data text-xs font-bold text-on-surface-variant">0개</span>
+                    </div>
+                    <div class="bg-surface p-sm border border-outline-variant/60 rounded-xl">
+                        <p class="text-[10px] text-outline font-semibold mb-xs">20번대 (21~30)</p>
+                        <div class="h-16 w-full flex items-end justify-center mb-xs">
+                            <div id="dist-21-30" class="w-6 bg-rose-500 rounded-t-md transition-all duration-500" style="height: 20%;"></div>
+                        </div>
+                        <span id="dist-21-30-txt" class="font-mono-data text-xs font-bold text-on-surface-variant">0개</span>
+                    </div>
+                    <div class="bg-surface p-sm border border-outline-variant/60 rounded-xl">
+                        <p class="text-[10px] text-outline font-semibold mb-xs">30번대 (31~40)</p>
+                        <div class="h-16 w-full flex items-end justify-center mb-xs">
+                            <div id="dist-31-40" class="w-6 bg-slate-400 rounded-t-md transition-all duration-500" style="height: 20%;"></div>
+                        </div>
+                        <span id="dist-31-40-txt" class="font-mono-data text-xs font-bold text-on-surface-variant">0개</span>
+                    </div>
+                    <div class="bg-surface p-sm border border-outline-variant/60 rounded-xl">
+                        <p class="text-[10px] text-outline font-semibold mb-xs">40번대 (41~45)</p>
+                        <div class="h-16 w-full flex items-end justify-center mb-xs">
+                            <div id="dist-41-45" class="w-6 bg-emerald-500 rounded-t-md transition-all duration-500" style="height: 20%;"></div>
+                        </div>
+                        <span id="dist-41-45-txt" class="font-mono-data text-xs font-bold text-on-surface-variant">0개</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SAVED (Library) -->
+        <section id="section-saved" class="space-y-lg hidden">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-on-surface font-bold">로또 번호 보관함</h2>
+                    <p class="text-on-surface-variant text-sm mt-xs">직접 마음에 들어 저장한 나만의 꿈의 조합들입니다.</p>
+                </div>
+                <button id="btn-clear-saved" class="px-md py-sm bg-error-container text-on-error-container hover:bg-error/10 text-xs font-semibold rounded-xl border border-error/20 flex items-center gap-xs active:scale-[0.98] transition-all">
+                    <span class="material-symbols-outlined text-sm">delete_sweep</span>
+                    <span>전체 삭제</span>
+                </button>
+            </div>
+
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] p-lg min-h-[300px] flex flex-col justify-between">
+                <!-- Saved List Container -->
+                <div id="saved-list" class="divide-y divide-outline-variant/60">
+                    <!-- Saved items generated by JS -->
+                    <div class="py-xl text-center text-on-surface-variant flex flex-col items-center justify-center" id="saved-empty-placeholder">
+                        <span class="material-symbols-outlined text-4xl text-outline-variant mb-xs">folder_open</span>
+                        <p class="text-sm font-semibold">저장된 로또 번호가 없습니다.</p>
+                        <p class="text-xs text-outline mt-xs">추첨기에서 번호 생성 후 저장해 보세요!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+</div>
+
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant shadow-sm md:hidden">
+    <div class="flex justify-around items-center h-16 w-full px-md">
+        <!-- Home (Active) -->
+        <button id="m-nav-home-btn" class="flex flex-col items-center justify-center text-secondary bg-secondary-container/10 rounded-xl px-sm py-xs active:scale-95 transition-transform duration-150">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">casino</span>
+            <span class="font-label-md text-[10px]">추첨기</span>
+        </button>
+        <!-- Stats -->
+        <button id="m-nav-stats-btn" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform duration-150">
+            <span class="material-symbols-outlined">analytics</span>
+            <span class="font-label-md text-[10px]">분석</span>
+        </button>
+        <!-- Saved -->
+        <button id="m-nav-saved-btn" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform duration-150">
+            <span class="material-symbols-outlined">folder_special</span>
+            <span class="font-label-md text-[10px]">보관함</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Toast SnackBar Notification (Toast) -->
+<div id="toast" class="fixed bottom-20 left-1/2 transform -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-xs font-semibold px-md py-sm rounded-lg shadow-lg opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center gap-xs">
+    <span class="material-symbols-outlined text-sm">info</span>
+    <span id="toast-message">알림 메시지</span>
+</div>
+
+<script>
+    // --- STATE MANAGEMENT ---
+    let currentGameCount = 1;
+    let generatedCombinations = []; // Array of arrays: [[1,2,3,4,5,6], ...]
+    let savedCombinations = JSON.parse(localStorage.getItem('saved_lotto_combinations')) || [];
+
+    // --- DOM ELEMENTS ---
+    const sections = {
+        home: document.getElementById('section-home'),
+        stats: document.getElementById('section-stats'),
+        saved: document.getElementById('section-saved')
+    };
+
+    const navButtons = {
+        desktop: {
+            home: document.getElementById('nav-home-btn'),
+            stats: document.getElementById('nav-stats-btn'),
+            saved: document.getElementById('nav-saved-btn')
+        },
+        mobile: {
+            home: document.getElementById('m-nav-home-btn'),
+            stats: document.getElementById('m-nav-stats-btn'),
+            saved: document.getElementById('m-nav-saved-btn')
+        }
+    };
+
+    // --- TAB SWITCH LOGIC ---
+    function switchTab(targetTab) {
+        // Hide all sections
+        Object.values(sections).forEach(sec => sec.classList.add('hidden'));
+        // Show target section
+        sections[targetTab].classList.remove('hidden');
+
+        // Reset button styles (Desktop)
+        Object.entries(navButtons.desktop).forEach(([key, btn]) => {
+            if (key === targetTab) {
+                btn.classList.add('bg-secondary-container/20', 'text-secondary');
+                btn.classList.remove('text-on-surface-variant');
+                btn.querySelector('span').style.fontVariationSettings = "'FILL' 1";
+            } else {
+                btn.classList.remove('bg-secondary-container/20', 'text-secondary');
+                btn.classList.add('text-on-surface-variant');
+                btn.querySelector('span').style.fontVariationSettings = "'FILL' 0";
+            }
+        });
+
+        // Reset button styles (Mobile)
+        Object.entries(navButtons.mobile).forEach(([key, btn]) => {
+            if (key === targetTab) {
+                btn.classList.add('bg-secondary-container/10', 'text-secondary');
+                btn.classList.remove('text-on-surface-variant');
+                btn.querySelector('span').style.fontVariationSettings = "'FILL' 1";
+            } else {
+                btn.classList.remove('bg-secondary-container/10', 'text-secondary');
+                btn.classList.add('text-on-surface-variant');
+                btn.querySelector('span').style.fontVariationSettings = "'FILL' 0";
+            }
+        });
+
+        // Specific actions per section
+        if (targetTab === 'stats') {
+            updateStatsView();
+        } else if (targetTab === 'saved') {
+            renderSavedList();
+        }
+    }
+
+    // Attach Click Events to Nav
+    Object.entries(navButtons.desktop).forEach(([tab, btn]) => {
+        btn.addEventListener('click', () => switchTab(tab));
+    });
+    Object.entries(navButtons.mobile).forEach(([tab, btn]) => {
+        btn.addEventListener('click', () => switchTab(tab));
+    });
+
+    // --- COLLAPSIBLE FILTERS ---
+    const filterToggle = document.getElementById('filter-toggle');
+    const filterContent = document.getElementById('filter-content');
+    const filterArrow = document.getElementById('filter-arrow');
+
+    filterToggle.addEventListener('click', () => {
+        const isHidden = filterContent.classList.contains('hidden');
+        if (isHidden) {
+            filterContent.classList.remove('hidden');
+            filterArrow.style.transform = 'rotate(180deg)';
+        } else {
+            filterContent.classList.add('hidden');
+            filterArrow.style.transform = 'rotate(0deg)';
+        }
+    });
+
+    // --- GAME COUNT SELECTION ---
+    const btnCount1 = document.getElementById('btn-count-1');
+    const btnCount5 = document.getElementById('btn-count-5');
+
+    btnCount1.addEventListener('click', () => {
+        currentGameCount = 1;
+        btnCount1.className = "px-md py-xs text-xs font-semibold rounded-md bg-white text-primary shadow-sm transition-all duration-150";
+        btnCount5.className = "px-md py-xs text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all duration-150";
+    });
+
+    btnCount5.addEventListener('click', () => {
+        currentGameCount = 5;
+        btnCount5.className = "px-md py-xs text-xs font-semibold rounded-md bg-white text-primary shadow-sm transition-all duration-150";
+        btnCount1.className = "px-md py-xs text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all duration-150";
+    });
+
+    // --- LOTTO GENERATION LOGIC ---
+    const btnDraw = document.getElementById('btn-draw');
+    const btnSaveAll = document.getElementById('btn-save-all');
+    const drawPlaceholder = document.getElementById('draw-placeholder');
+    const drawResults = document.getElementById('draw-results');
+
+    // Helper: Determine ball colors based on numbers
+    function getBallColorClass(num) {
+        if (num >= 1 && num <= 10) return 'ball-yellow';
+        if (num >= 11 && num <= 20) return 'ball-blue';
+        if (num >= 21 && num <= 30) return 'ball-red';
+        if (num >= 31 && num <= 40) return 'ball-grey';
+        return 'ball-green';
+    }
+
+    // Toast Notification helper
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-message');
+        toastMsg.textContent = message;
+        toast.classList.remove('opacity-0');
+        toast.classList.add('opacity-100');
+        setTimeout(() => {
+            toast.classList.remove('opacity-100');
+            toast.classList.add('opacity-0');
+        }, 2500);
+    }
+
+    // Lotto random generator with advanced filters
+    function generateLottoNumbers(includeNum = [], excludeNum = [], oddEvenPreference = 'all') {
+        let pool = [];
+        for (let i = 1; i <= 45; i++) {
+            if (!excludeNum.includes(i)) {
+                pool.push(i);
+            }
+        }
+
+        // Shuffle pool
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        let attempts = 0;
+        const maxAttempts = 500; // Prevent infinite loop for impossible filter combinations
+
+        while (attempts < maxAttempts) {
+            attempts++;
+            let numbers = [...includeNum];
+            let tempPool = [...pool].filter(n => !numbers.includes(n));
+            shuffle(tempPool);
+
+            // Fill up to 6 numbers
+            while (numbers.length < 6 && tempPool.length > 0) {
+                numbers.push(tempPool.pop());
+            }
+
+            if (numbers.length < 6) {
+                // Not enough numbers in pool
+                return null;
+            }
+
+            numbers.sort((a, b) => a - b);
+
+            // Verify Odd/Even filters
+            const oddCount = numbers.filter(n => n % 2 !== 0).length;
+            const evenCount = 6 - oddCount;
+
+            if (oddEvenPreference === '3:3' && oddCount !== 3) continue;
+            if (oddEvenPreference === 'odd' && oddCount < 4) continue;
+            if (oddEvenPreference === 'even' && evenCount < 4) continue;
+
+            return numbers;
+        }
+
+        // Fallback: Return raw random if filter constraints are too strict and fail
+        let fallback = [];
+        let cleanPool = Array.from({length: 45}, (_, i) => i + 1).filter(n => !excludeNum.includes(n));
+        shuffle(cleanPool);
+        return cleanPool.slice(0, 6).sort((a, b) => a - b);
+    }
+
+    btnDraw.addEventListener('click', () => {
+        // Parse filter input values
+        const rawInclude = document.getElementById('filter-include').value;
+        const rawExclude = document.getElementById('filter-exclude').value;
+        const oddEven = document.getElementById('filter-odd-even').value;
+
+        const includeList = rawInclude.split(',')
+            .map(s => parseInt(s.trim()))
+            .filter(n => !isNaN(n) && n >= 1 && n <= 45)
+            .slice(0, 3); // Max 3
+
+        const excludeList = rawExclude.split(',')
+            .map(s => parseInt(s.trim()))
+            .filter(n => !isNaN(n) && n >= 1 && n <= 45)
+            .slice(0, 5); // Max 5
+
+        // Generate combinations
+        generatedCombinations = [];
+        for (let g = 0; g < currentGameCount; g++) {
+            const comb = generateLottoNumbers(includeList, excludeList, oddEven);
+            if (comb) {
+                generatedCombinations.push(comb);
+            }
+        }
+
+        if (generatedCombinations.length === 0) {
+            showToast("필터링 기준에 알맞는 번호를 생성할 수 없습니다.");
+            return;
+        }
+
+        // Show loading simulation
+        drawPlaceholder.classList.add('hidden');
+        drawResults.classList.remove('hidden');
+        drawResults.innerHTML = '';
+        btnDraw.disabled = true;
+        btnDraw.classList.add('opacity-75');
+
+        // Create empty balls shells to represent loading
+        generatedCombinations.forEach((comb, gameIdx) => {
+            const gameLine = document.createElement('div');
+            gameLine.className = "flex flex-col sm:flex-row items-start sm:items-center justify-between p-md bg-surface-container-low border border-outline-variant/60 rounded-xl gap-md transition-all";
+            
+            const ballsWrapper = document.createElement('div');
+            ballsWrapper.className = "flex flex-wrap items-center gap-xs";
+            
+            // 6 empty balls
+            for (let i = 0; i < 6; i++) {
+                const emptyBall = document.createElement('span');
+                emptyBall.className = "lotto-ball ball-empty font-mono-data";
+                emptyBall.textContent = "?";
+                ballsWrapper.appendChild(emptyBall);
+            }
+
+            const headerWrapper = document.createElement('div');
+            headerWrapper.className = "flex items-center gap-sm";
+            const indexLabel = document.createElement('span');
+            indexLabel.className = "text-xs font-bold text-primary font-mono-data px-sm py-xs bg-primary/10 rounded-md";
+            indexLabel.textContent = `GAME ${String.fromCharCode(65 + gameIdx)}`;
+            
+            headerWrapper.appendChild(indexLabel);
+            headerWrapper.appendChild(ballsWrapper);
+
+            gameLine.appendChild(headerWrapper);
+
+            // Save button
+            const saveBtn = document.createElement('button');
+            saveBtn.className = "px-md py-xs bg-primary-container text-primary hover:bg-primary-container/85 rounded-lg text-xs font-semibold flex items-center gap-xs transition-colors self-end sm:self-auto opacity-0 transition-opacity duration-300";
+            saveBtn.innerHTML = `<span class="material-symbols-outlined text-sm">bookmark</span> 저장`;
+            saveBtn.addEventListener('click', () => saveCombination(comb));
+            gameLine.appendChild(saveBtn);
+
+            drawResults.appendChild(gameLine);
+        });
+
+        // Sequential ball rolling / reveal animation
+        let gameRow = 0;
+        let ballIdx = 0;
+
+        function revealNext() {
+            if (gameRow >= generatedCombinations.length) {
+                // Done drawing
+                btnDraw.disabled = false;
+                btnDraw.classList.remove('opacity-75');
+                btnSaveAll.classList.remove('hidden');
+                btnSaveAll.classList.add('flex');
+                
+                // Make save buttons visible
+                drawResults.querySelectorAll('button').forEach(btn => {
+                    btn.classList.remove('opacity-0');
+                    btn.classList.add('opacity-100');
+                });
+                
+                showToast(`${generatedCombinations.length}개의 게임 추첨 완료!`);
+                return;
+            }
+
+            const rowElement = drawResults.children[gameRow];
+            const balls = rowElement.querySelectorAll('.lotto-ball');
+            const targetNum = generatedCombinations[gameRow][ballIdx];
+
+            const currentBall = balls[ballIdx];
+            currentBall.textContent = targetNum;
+            currentBall.className = `lotto-ball ${getBallColorClass(targetNum)} animate-roll`;
+
+            ballIdx++;
+            if (ballIdx >= 6) {
+                ballIdx = 0;
+                gameRow++;
+            }
+
+            setTimeout(revealNext, 120);
+        }
+
+        setTimeout(revealNext, 200);
+    });
+
+    // --- SAVE COMBINATIONS ---
+    function saveCombination(comb) {
+        // Prevent duplicate saving
+        const combStr = comb.join(',');
+        const alreadySaved = savedCombinations.some(s => s.numbers.join(',') === combStr);
+
+        if (alreadySaved) {
+            showToast("이미 보관함에 존재하는 조합입니다.");
+            return;
+        }
+
+        savedCombinations.push({
+            id: Date.now() + Math.random().toString(36).substr(2, 5),
+            numbers: comb,
+            date: new Date().toLocaleDateString()
+        });
+
+        localStorage.setItem('saved_lotto_combinations', JSON.stringify(savedCombinations));
+        showToast("보관함에 저장되었습니다!");
+    }
+
+    // Save All Generated Combinations
+    btnSaveAll.addEventListener('click', () => {
+        let addedCount = 0;
+        generatedCombinations.forEach(comb => {
+            const combStr = comb.join(',');
+            const alreadySaved = savedCombinations.some(s => s.numbers.join(',') === combStr);
+            if (!alreadySaved) {
+                savedCombinations.push({
+                    id: Date.now() + Math.random().toString(36).substr(2, 5),
+                    numbers: comb,
+                    date: new Date().toLocaleDateString()
+                });
+                addedCount++;
+            }
+        });
+
+        if (addedCount > 0) {
+            localStorage.setItem('saved_lotto_combinations', JSON.stringify(savedCombinations));
+            showToast(`${addedCount}개 조합 보관 완료!`);
+        } else {
+            showToast("모든 조합이 이미 보관함에 있습니다.");
+        }
+    });
+
+    // --- LIBRARY/SAVED SECTION LOGIC ---
+    const savedList = document.getElementById('saved-list');
+    const savedEmptyPlaceholder = document.getElementById('saved-empty-placeholder');
+    const btnClearSaved = document.getElementById('btn-clear-saved');
+
+    function renderSavedList() {
+        savedList.innerHTML = '';
+        
+        if (savedCombinations.length === 0) {
+            savedEmptyPlaceholder.classList.remove('hidden');
+            savedList.appendChild(savedEmptyPlaceholder);
+            return;
+        }
+
+        savedEmptyPlaceholder.classList.add('hidden');
+
+        savedCombinations.forEach((item, index) => {
+            const row = document.createElement('div');
+            row.className = "flex flex-col sm:flex-row items-start sm:items-center justify-between py-md border-b border-outline-variant/60 gap-md";
+
+            const infoWrapper = document.createElement('div');
+            infoWrapper.className = "flex items-center gap-md";
+
+            const indexBadge = document.createElement('span');
+            indexBadge.className = "text-xs font-bold font-mono-data bg-surface-container text-on-surface-variant w-8 h-8 rounded-full flex items-center justify-center border border-outline-variant/50";
+            indexBadge.textContent = String(index + 1).padStart(2, '0');
+
+            const ballsWrapper = document.createElement('div');
+            ballsWrapper.className = "flex flex-wrap items-center gap-xs";
+            item.numbers.forEach(n => {
+                const b = document.createElement('span');
+                b.className = `lotto-ball ${getBallColorClass(n)}`;
+                b.textContent = n;
+                ballsWrapper.appendChild(b);
+            });
+
+            infoWrapper.appendChild(indexBadge);
+            infoWrapper.appendChild(ballsWrapper);
+
+            const metaWrapper = document.createElement('div');
+            metaWrapper.className = "flex items-center gap-md self-end sm:self-auto";
+            
+            const dateLabel = document.createElement('span');
+            dateLabel.className = "text-[10px] text-outline font-mono-data";
+            dateLabel.textContent = `저장일: ${item.date}`;
+
+            const delBtn = document.createElement('button');
+            delBtn.className = "p-xs text-error hover:bg-error-container rounded-lg active:scale-95 transition-all";
+            delBtn.innerHTML = `<span class="material-symbols-outlined text-lg">delete</span>`;
+            delBtn.addEventListener('click', () => {
+                deleteSavedCombination(item.id);
+            });
+
+            metaWrapper.appendChild(dateLabel);
+            metaWrapper.appendChild(delBtn);
+
+            row.appendChild(infoWrapper);
+            row.appendChild(metaWrapper);
+            savedList.appendChild(row);
+        });
+    }
+
+    function deleteSavedCombination(id) {
+        savedCombinations = savedCombinations.filter(s => s.id !== id);
+        localStorage.setItem('saved_lotto_combinations', JSON.stringify(savedCombinations));
+        renderSavedList();
+        showToast("번호가 삭제되었습니다.");
+    }
+
+    btnClearSaved.addEventListener('click', () => {
+        if (savedCombinations.length === 0) return;
+        if (confirm("보관된 모든 조합을 삭제하시겠습니까?")) {
+            savedCombinations = [];
+            localStorage.removeItem('saved_lotto_combinations');
+            renderSavedList();
+            showToast("보관함이 완전히 비워졌습니다.");
+        }
+    });
+
+    // --- STATS CALCULATION LOGIC ---
+    function updateStatsView() {
+        if (generatedCombinations.length === 0) {
+            // Fill with default simulation if empty
+            generatedCombinations = [[4, 5, 9, 11, 37, 40]];
+        }
+
+        // Flatten all numbers generated recently
+        let allNums = generatedCombinations.flat();
+        
+        // 1. Odd / Even Calculations
+        let oddCount = allNums.filter(n => n % 2 !== 0).length;
+        let evenCount = allNums.length - oddCount;
+        let oddPct = Math.round((oddCount / allNums.length) * 100) || 50;
+
+        document.getElementById('stat-odd-pct').textContent = `${oddPct}%`;
+        document.getElementById('stat-odd-cnt').textContent = `${Math.round(oddCount / generatedCombinations.length * 10) / 10}개`;
+        document.getElementById('stat-even-cnt').textContent = `${Math.round(evenCount / generatedCombinations.length * 10) / 10}개`;
+
+        // Update SVG Dash-Array
+        // Circumference is 2 * PI * r = 2 * 3.1415 * 15.9155 = 100
+        const svgPath = document.getElementById('svg-odd-path');
+        svgPath.setAttribute('stroke-dasharray', `${oddPct}, 100`);
+
+        // 2. Average Sum Calculation
+        let sums = generatedCombinations.map(comb => comb.reduce((a, b) => a + b, 0));
+        let avgSum = Math.round(sums.reduce((a, b) => a + b, 0) / sums.length) || 0;
+        document.getElementById('stat-sum-avg').textContent = avgSum;
+
+        // Position the indicator bar
+        // Min sum = 21 (1+2+3+4+5+6), Max sum = 279 (40+41+42+43+44+45)
+        let sumPct = Math.min(Math.max(((avgSum - 21) / (279 - 21)) * 100, 5), 95);
+        document.getElementById('stat-sum-indicator').style.width = `${sumPct}%`;
+
+        // 3. High / Low
+        let lowCount = allNums.filter(n => n <= 22).length;
+        let highCount = allNums.length - lowCount;
+        let lowPct = Math.round((lowCount / allNums.length) * 100) || 50;
+        let highPct = 100 - lowPct;
+
+        document.getElementById('stat-low-pct').textContent = `${lowPct}%`;
+        document.getElementById('stat-high-pct').textContent = `${highPct}%`;
+        document.getElementById('stat-low-bar').style.width = `${lowPct}%`;
+        document.getElementById('stat-high-bar').style.width = `${highPct}%`;
+
+        // 4. Number bands distribution
+        let dist = { '1-10': 0, '11-20': 0, '21-30': 0, '31-40': 0, '41-45': 0 };
+        allNums.forEach(n => {
+            if (n >= 1 && n <= 10) dist['1-10']++;
+            else if (n >= 11 && n <= 20) dist['11-20']++;
+            else if (n >= 21 && n <= 30) dist['21-30']++;
+            else if (n >= 31 && n <= 40) dist['31-40']++;
+            else if (n >= 41 && n <= 45) dist['41-45']++;
+        });
+
+        const gameNum = generatedCombinations.length;
+        Object.entries(dist).forEach(([band, val]) => {
+            const key = `dist-${band}`;
+            const bar = document.getElementById(key);
+            const txt = document.getElementById(`${key}-txt`);
+            
+            // Calculate percentage relative to max possible count
+            let maxCountInSingleBand = 6 * gameNum;
+            let valPct = Math.min(((val / maxCountInSingleBand) * 100) * 4, 100); // Scale visually
+            if (val === 0) valPct = 5; // Minimal bar height
+
+            bar.style.height = `${valPct}%`;
+            txt.textContent = `${Math.round(val / gameNum * 10) / 10}개`;
+        });
+    }
+
+    // --- INITIALIZE APPLICATION ---
+    // Ensure home is visible
+    switchTab('home');
+</script>
+</body>
+</html>
