@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EquityEase - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#bdc2ff",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#ffb4ac",
+                        "outline": "#767683",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "primary-container": "#1a237e",
+                        "surface-container": "#eceef0",
+                        "inverse-on-surface": "#eff1f3",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-fixed": "#000767",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-tint": "#4c56af",
+                        "secondary": "#1b6d24",
+                        "surface": "#f8f9fb",
+                        "on-secondary-fixed-variant": "#005312",
+                        "on-tertiary-fixed-variant": "#93000e",
+                        "on-tertiary-fixed": "#410003",
+                        "secondary-fixed": "#a3f69c",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#ff635a",
+                        "secondary-container": "#a0f399",
+                        "primary": "#000666",
+                        "secondary-fixed-dim": "#88d982",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-container": "#217128",
+                        "inverse-primary": "#bdc2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#8690ee",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed-variant": "#343d96",
+                        "on-surface-variant": "#454652",
+                        "tertiary-fixed": "#ffdad6",
+                        "tertiary-container": "#670007",
+                        "background": "#f8f9fb",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#400003",
+                        "outline-variant": "#c6c5d4",
+                        "surface-bright": "#f8f9fb",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed": "#002204",
+                        "primary-fixed": "#e0e0ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "40px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .sparkline-gradient {
+            fill: url(#gradient-emerald);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center px-lg py-md w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvHVkyNHGU-j7jG88zWv2lMuyTDVu_YKoq8rvJgl8DbbweieHr2c5uIyFAeIgXDXjiwmF3pI1WVetQQWfUjHYx77QeB4vZy4n6CWDmUMLvy_B-sM9XqRnWl4iZvW32pqJrhVhxIa5EAcHpzh2Rs9-dpXpXenSGrJ-CjfcWfv0_pakiT9l-Z_BUQB9TtCTkyTfZcoDHzdpAqhSip_wfjbRSN7NkiYsHVnteOQvBtGPds5H_7T4yIwSu0cA"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">EquityEase</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs rounded-full hover:bg-surface-container-low transition-colors active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto pb-xl">
+<!-- Market Overview Section -->
+<section class="px-lg py-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- KOSPI Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:border-primary/20 transition-all">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">KOSPI</p>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-xs">2,658.21</h2>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-secondary font-mono-data flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                +1.24%
+                            </span>
+<span class="text-secondary font-mono-data">+32.55</span>
+</div>
+</div>
+<div class="h-20 w-full relative">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 100">
+<defs>
+<lineargradient id="gradient-emerald" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#1b6d24;stop-opacity:0.1"></stop>
+<stop offset="100%" style="stop-color:#1b6d24;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,80 Q50,70 100,85 T200,60 T300,75 T400,40" fill="none" stroke="#1b6d24" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path class="sparkline-gradient" d="M0,80 Q50,70 100,85 T200,60 T300,75 T400,40 L400,100 L0,100 Z"></path>
+</svg>
+</div>
+</div>
+<!-- KOSDAQ Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:border-primary/20 transition-all">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">KOSDAQ</p>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-xs">872.14</h2>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-secondary font-mono-data flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                +0.88%
+                            </span>
+<span class="text-secondary font-mono-data">+7.62</span>
+</div>
+</div>
+<div class="h-20 w-full relative">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 100">
+<path d="M0,70 Q50,75 100,60 T200,80 T300,50 T400,30" fill="none" stroke="#1b6d24" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path class="sparkline-gradient" d="M0,70 Q50,75 100,60 T200,80 T300,50 T400,30 L400,100 L0,100 Z"></path>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- Today's Guide (Featured Lesson) -->
+<section class="px-lg py-md">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Today's Guide</h3>
+<div class="relative w-full rounded-xl overflow-hidden group cursor-pointer aspect-[21/9] bg-primary">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105" data-alt="A professional stock market analyst point of view looking at multiple high-resolution displays showing complex candlestick charts and data visualizations. The office is modern and dimly lit with cool blue ambient light, creating an atmosphere of deep focus and institutional financial intelligence. The scene reflects a sophisticated corporate investment environment with clean lines and high-tech equipment." src="https://lh3.googleusercontent.com/aida/AP1WRLusedipKMlWNN7jgvTOtGphJ4Om71R9n4WNFIO6dIJG5avQWAdxXa4c8S5McDHi1T-36Oww9RvNKlJq4ZRLiteUnsIcKraOVIMH1q0smtVtVfyKcJs0NnVSEJKIxXfEyngCo40jxjVBgiRpv5CnB5x54PKtO8hjv3Ni7IpkqfURpjPTf_kEFf35CHHXdtrSuyrn3Bpn1s7db010FTEuj-xhbW7CixwRPsX4jr6HmSxdv1Am4Wu73Cy6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent"></div>
+<div class="absolute inset-0 flex flex-col justify-end p-lg md:p-xl">
+<span class="inline-block px-sm py-xs bg-secondary-container text-on-secondary-container rounded-full font-label-md text-label-md mb-sm w-fit">
+                        BEGINNER COURSE
+                    </span>
+<h2 class="font-headline-lg text-headline-lg text-white max-w-2xl mb-md">Mastering the Basics: How to Read a Balance Sheet</h2>
+<p class="text-primary-fixed-dim font-body-lg text-body-lg max-w-xl mb-lg hidden md:block">
+                        Unlock the secrets behind the numbers. Learn why the balance sheet is the most important document for any long-term investor.
+                    </p>
+<button class="px-lg py-md bg-white text-primary rounded-xl font-title-lg text-title-lg w-fit hover:bg-surface-container-low transition-colors">
+                        Start Learning
+                    </button>
+</div>
+</div>
+</section>
+<!-- Real-time News Section -->
+<section class="px-lg py-lg">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Real-time News</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="flex gap-md overflow-x-auto hide-scrollbar pb-md -mx-xs px-xs">
+<!-- News Card 1 -->
+<div class="min-w-[300px] md:min-w-[380px] bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A macro shot of digital numbers on a dark electronic display screen reflecting market volatility. The numbers are glowing in emerald green and tertiary crimson, indicating price fluctuations. The lighting is low and focused, emphasizing the clinical precision of financial data in a modern corporate trading floor environment." src="https://lh3.googleusercontent.com/aida/AP1WRLvGafTezZf8OO7bqD2vzQWB35oCaRu7PTWp5sL6kSuRYQ-DFNf2EPR0zW84CdpfE_pLDIRDZyExo-kz6qS7xMcABBYq6vr469Y6M8x4P1zy5PgPNKHDKkSVbatjT9Dn8c7csztdUJ5VEdtlncySpwmCJVJc6Mtmr7bYE1_6QdyoOU2gR2qTAzpV8rj5yCZkr7VQVi7BsGdKwfxXeJl_9nlQDOcZIMpSKMV5ReFln_zDncHV6CPiS6yusw"/>
+<div class="absolute top-sm right-sm px-sm py-xs bg-white/90 backdrop-blur rounded-full text-on-surface font-label-md text-label-md">
+                            Market News
+                        </div>
+</div>
+<div class="p-md">
+<h4 class="font-title-lg text-title-lg text-on-surface mb-sm line-clamp-2">Tech Stocks Surge as Inflation Fears Subside in Early Trading</h4>
+<div class="flex items-center gap-sm text-on-surface-variant font-label-md text-label-md">
+<span>Reuters</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>2 mins ago</span>
+</div>
+</div>
+</div>
+<!-- News Card 2 -->
+<div class="min-w-[300px] md:min-w-[380px] bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A minimalist architectural shot of a modern financial district with clean glass skyscrapers under a bright, high-key sky. The aesthetic is professional and corporate, using a palette of whites, greys, and navy blues. The lighting is diffused and even, symbolizing stability and transparency in the global financial markets." src="https://lh3.googleusercontent.com/aida/AP1WRLsnyPYehEpSDz7HXE2523OLs203faYpjfQ6Y3Q4zRrmmo3UmUxumtdyCfCBJBTREeIhAktbn1UY56owChCsB5LsVpKDYDqMdPQklD2NF_JNppFQ5LotSDVDlgwXOaqnBjvyuBljvL9UtvGR74fXZXyepW0z2TgARchDA1jupWtNuF6ADnc7knzo93cWb2xPvlTlYIix_GeYxPkrLvjTzRKb1LOD_gn8H2iupAdOquMdHvMMhBFsE2Fziw"/>
+<div class="absolute top-sm right-sm px-sm py-xs bg-white/90 backdrop-blur rounded-full text-on-surface font-label-md text-label-md">
+                            Analysis
+                        </div>
+</div>
+<div class="p-md">
+<h4 class="font-title-lg text-title-lg text-on-surface mb-sm line-clamp-2">Why Semiconductor Manufacturers are Dominating the KOSDAQ</h4>
+<div class="flex items-center gap-sm text-on-surface-variant font-label-md text-label-md">
+<span>Bloomberg</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>15 mins ago</span>
+</div>
+</div>
+</div>
+<!-- News Card 3 -->
+<div class="min-w-[300px] md:min-w-[380px] bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A clean, data-driven visualization of a global supply chain map on a high-tech monitor. The interface uses a deep navy and white color palette with sharp typography. The lighting is professional and minimalist, reflecting a data-first philosophy for modern financial logistics and market impact analysis." src="https://lh3.googleusercontent.com/aida/AP1WRLshcyFoJYG9YCLd3-nE_RPOm5vLxPIKCp550p99tUdhHSTW6NLK-kn915K4NEdCmxptFIQeCOga3GvznWhdPCRvO4p93ZzfbZa965kOVqkTtgXDxMr35_BJLYOZad4JkVpPkQTIrRpqr0crbFMPi7pCAj8LuseI3o5drmMu2MyDynYNroQ_oz9641aNyA28lOEhDOsLXar-BFWs_9BXg5BLR9LHUKvU-iR2EwVuuA3uccE_0oEpkgQR"/>
+<div class="absolute top-sm right-sm px-sm py-xs bg-white/90 backdrop-blur rounded-full text-on-surface font-label-md text-label-md">
+                            Global
+                        </div>
+</div>
+<div class="p-md">
+<h4 class="font-title-lg text-title-lg text-on-surface mb-sm line-clamp-2">New Export Regulations Impacting Automotive Sector Outcomes</h4>
+<div class="flex items-center gap-sm text-on-surface-variant font-label-md text-label-md">
+<span>The Journal</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>42 mins ago</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Assets (Quick List) -->
+<section class="px-lg py-md">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Trending Now</h3>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl divide-y divide-outline-variant">
+<!-- Asset Item 1 -->
+<div class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">SE</div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">Samsung Electronics</p>
+<p class="text-on-surface-variant font-label-md text-label-md">005930</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-mono-data text-on-surface">73,200 KRW</p>
+<p class="text-secondary font-mono-data">+1.52%</p>
+</div>
+</div>
+<!-- Asset Item 2 -->
+<div class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">SK</div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">SK Hynix</p>
+<p class="text-on-surface-variant font-label-md text-label-md">000660</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-mono-data text-on-surface">148,500 KRW</p>
+<p class="text-secondary font-mono-data">+2.14%</p>
+</div>
+</div>
+<!-- Asset Item 3 -->
+<div class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">NA</div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">NAVER</p>
+<p class="text-on-surface-variant font-label-md text-label-md">035420</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-mono-data text-on-surface">192,400 KRW</p>
+<p class="text-error font-mono-data">-0.32%</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant shadow-sm md:hidden">
+<div class="flex justify-around items-center h-16 w-full px-md">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-secondary bg-secondary-container/10 rounded-xl px-sm py-xs active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<!-- Learn -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Learn</span>
+</a>
+<!-- Discover -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-md text-label-md">Discover</span>
+</a>
+<!-- Portfolio -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-label-md text-label-md">Portfolio</span>
+</a>
+</div>
+</nav>
+<!-- Desktop Navigation (Hidden on mobile) -->
+<div class="hidden md:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-20 flex-col items-center py-lg bg-surface border-r border-outline-variant z-40">
+<a class="mb-xl p-sm rounded-xl bg-secondary-container/20 text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</a>
+<a class="mb-xl p-sm rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</a>
+<a class="mb-xl p-sm rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</a>
+<a class="mb-xl p-sm rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+</a>
+</div>
+<script>
+        // Simple micro-interaction for news cards scrolling
+        const scrollContainer = document.querySelector('.overflow-x-auto');
+        if (scrollContainer) {
+            scrollContainer.addEventListener('wheel', (evt) => {
+                evt.preventDefault();
+                scrollContainer.scrollLeft += evt.deltaY;
+            });
+        }
+
+        // Add active states based on interaction
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('touchstart', () => el.classList.add('opacity-80'), {passive: true});
+            el.addEventListener('touchend', () => el.classList.remove('opacity-80'), {passive: true});
+        });
+    </script>
+</body></html>
