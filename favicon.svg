@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- 입체감 있는 딥 네이비 구슬 그라디언트 -->
+    <radialGradient id="sphereGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#2a36b1" />
+      <stop offset="70%" stop-color="#000666" />
+      <stop offset="100%" stop-color="#000222" />
+    </radialGradient>
+    
+    <!-- 황금빛 그라디언트 -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe082" />
+      <stop offset="50%" stop-color="#ffb300" />
+      <stop offset="100%" stop-color="#ff6f00" />
+    </linearGradient>
+    
+    <!-- 광택 효과를 위한 반투명 흰색 그라디언트 -->
+    <radialGradient id="highlight" cx="50%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 그림자 효과 필터 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="5" dy="15" stdDeviation="12" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- 베이스 3D 구슬 -->
+  <circle cx="256" cy="256" r="220" fill="url(#sphereGrad)" filter="url(#shadow)" />
+  
+  <!-- 구슬 상단 광택 (Glossy) -->
+  <ellipse cx="256" cy="110" rx="140" ry="60" fill="url(#highlight)" />
+
+  <!-- 중앙 행운의 주사위 프레임 -->
+  <rect x="166" y="166" width="180" height="180" rx="36" fill="none" stroke="url(#goldGrad)" stroke-width="18" />
+  
+  <!-- 중앙의 상징적인 행운의 7 숫자 -->
+  <text x="256" y="292" font-family="'JetBrains Mono', 'Inter', sans-serif" font-size="120" font-weight="900" fill="url(#goldGrad)" text-anchor="middle">7</text>
+  
+  <!-- 주변부 장식용 황금 미니별 -->
+  <path d="M125 125 L129 135 L139 135 L131 141 L134 151 L125 145 L116 151 L119 141 L111 135 L121 135 Z" fill="url(#goldGrad)"/>
+  <path d="M387 387 L391 397 L401 397 L393 403 L396 413 L387 407 L378 413 L381 403 L373 397 L383 397 Z" fill="url(#goldGrad)"/>
+</svg>
